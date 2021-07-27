@@ -1,0 +1,28 @@
+<section class="headline-info">
+    <div class="combatants">
+        <span class="combatant">{{headline.fighters[0].surname}}</span>
+        <span class="vs">Vs</span>
+        <span class="combatant">{{headline.fighters[1].surname}}</span>
+        <span class="number" *ngIf="headline.matchNumber > 1">{{headline.matchNumber}}</span>
+    </div>
+
+    <div class="name" [innerHtml]="data.name"></div>
+
+    <div class="match-name">{{headline.name}}</div>
+    <div class="match-date">{{niceDate(data.date, headline.time)}}</div>
+    <div class="match-location">{{data.location}}</div>
+</section>
+
+<div class="purchase-buttons">
+    <button><mat-icon aria-label="Menu">play_circle_outline</mat-icon>Watch Live Now</button>
+    <span>Or</span>
+    <button>Purchase Your Pass</button>
+</div>
+
+<img class="fighter-background-image fighter-1 fighter-1-bg" src="assets/{{headline.fighters[0].backgroundImageName}}">
+<img class="fighter-image fighter-1 fighter-1-fg" src="assets/{{headline.fighters[0].imageName}}">
+
+<img class="fighter-background-image fighter-2 fighter-2-bg" src="assets/{{headline.fighters[1].backgroundImageName}}">
+<img class="fighter-image fighter-2 fighter-2-fg"  src="assets/{{headline.fighters[1].imageName}}">
+
+<img class="shadow-bottom" src="assets/shadow-bottom.png">

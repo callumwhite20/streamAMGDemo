@@ -1,0 +1,23 @@
+@import '../../styles/variables.scss';
+
+.headline-1 {
+    background-color: $black;
+    background-image: url('./../../assets/smoke1.png');
+    background-size: cover;
+    transition: background-position 30s ease-in-out
+}
+
+.headline-2 {
+    background-color: transparent;
+    background-image: url('./../../assets/smoke2.png');
+    background-size: cover;
+    transition: background-position 30s ease-in-out
+}
+
+.image-right {
+    background-position-x: right;
+}
+
+.relative {
+    overflow: hidden;
+}
