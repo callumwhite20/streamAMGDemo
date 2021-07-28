@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
-import * as moment from 'moment';
+import { DateService } from 'src/app/sevices/date/date.service';
 
 @Component({
   selector: 'app-headline',
@@ -15,7 +15,7 @@ export class HeadlineComponent implements OnInit {
   public fighter2:HTMLElement;
   public fighter2bg:HTMLElement;
 
-  constructor() {
+  constructor(private dateService: DateService) {
     this.fighter1 = Array.from(document.getElementsByClassName('fighter-1-fg') as HTMLCollectionOf<HTMLElement>)[0];
     this.fighter1bg = Array.from(document.getElementsByClassName('fighter-1-bg') as HTMLCollectionOf<HTMLElement>)[0];
     this.fighter2 = Array.from(document.getElementsByClassName('fighter-2-fg') as HTMLCollectionOf<HTMLElement>)[0];
@@ -23,13 +23,7 @@ export class HeadlineComponent implements OnInit {
   }
 
   public niceDate(date:string, time:string): string {
-    let timeFormat = 'ha';
-
-    if (time.split(':')[1] !== '00') {
-      timeFormat = 'h:mma';
-    }
-
-    return moment(date + ' ' + time).format('dddd, MMMM DD YYYY - ' + timeFormat);
+    return this.dateService.niceDate(date,time);
   }
 
   private moveFighters(position:number = 0) {

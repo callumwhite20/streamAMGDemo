@@ -13,3 +13,9 @@
         font-size: 3em;
     }
 }
+
+@media (min-width: 400px) and (max-width: 1000px) {
+    .logo {
+        width: 20%;
+    }
+}

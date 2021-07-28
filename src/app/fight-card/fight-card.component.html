@@ -1,0 +1,33 @@
+<div class="fight-card-contents">
+    <h1>
+        <span class="fight">Fight</span> <span class="card">Card</span>
+    </h1>
+
+    <p class="match-details">{{niceDate(data.date)}}<br>{{data.location}}</p>
+
+    <p class="eta">(ETA)</p>
+
+    <div class="timeline">
+        <div class="match" *ngFor="let match of data.matches; let i = index">
+            <span class="time" (click)="select(i)">{{match.time}}</span>
+        </div>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="timeline">
+        <div class="match" *ngFor="let match of data.matches; let i = index">
+            <span class="marker" [ngClass]="{'selected': i === selected}"></span>
+        </div>
+    </div>
+
+    <div class="match">
+        <span class="combatant">{{data.matches[selected].fighters[0].forename}} {{data.matches[selected].fighters[0].surname}}</span>
+        <span class="vs">Vs</span>
+        <br>
+        <span class="combatant">{{data.matches[selected].fighters[1].forename}} {{data.matches[selected].fighters[1].surname}}</span>
+        <span class="number" *ngIf="data.matches[selected].matchNumber > 1">{{data.matches[selected].matchNumber}}</span>
+
+        <div class="match-name">{{data.matches[selected].name}}</div>
+    </div>
+</div>

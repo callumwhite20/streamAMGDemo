@@ -4,11 +4,15 @@
     <div class="headline-1" [class.image-right]="moved">
         <div class="headline-2" [class.image-right]="!moved">
 
-            <section class="relative" *ngIf="data">
+            <section class="relative headline" *ngIf="data">
                 <app-headline [data]="data"></app-headline>
             </section>
         </div>
     </div>
+</div>
+
+<div class="fight-card" *ngIf="data">
+    <app-fight-card [data]="data"></app-fight-card>
 </div>
 
 <app-page-footer></app-page-footer>

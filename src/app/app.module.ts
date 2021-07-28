@@ -11,6 +11,7 @@ import { MaterialModule } from './shared/modules/material/material.module';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { HeadlineComponent } from './headline/headline.component';
 import { PageFooterComponent } from './page-footer/page-footer.component';
+import { FightCardComponent } from './fight-card/fight-card.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PageFooterComponent } from './page-footer/page-footer.component';
     HomeComponent,
     PageHeaderComponent,
     HeadlineComponent,
-    PageFooterComponent
+    PageFooterComponent,
+    FightCardComponent
   ],
   imports: [
     HttpClientModule,
