@@ -33,6 +33,11 @@
         font-weight: bold;
     }
 
+    .timeline-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
     .timeline {
         display: flex;
         justify-content: space-between;
@@ -43,6 +48,7 @@
         font-weight: bold;
         font-family: "nimbus-sans-condensed";
         font-size: 1.5em;
+        cursor: pointer;
     }
 
     .marker {
@@ -62,13 +68,24 @@
         border: 1px solid $red;
         width: calc(100% - 8px);
         position: relative;
-        top: 5px;
+        bottom: 11px;
         margin: 0 3px;
         z-index: -1;
     }
 
     .match {
         text-align: center;
+        transition: font-size 0.1s linear;
+    }
+
+    .match.not-selected {
+        font-size: 0.8em;
+        opacity: 0.3;
+
+        &:hover {
+            font-size: 1em;
+            opacity: 1;
+        }
     }
 
     .combatant {
@@ -95,11 +112,71 @@
 
     .match-name {
         color: $off-white-font;
+
+        &.hide-text {
+            color: transparent;
+        }
     }
 
-    @media (min-width: 400px) and (max-width: 1000px) {
+    .matchs-details {
+        display: none;
+    }
+
+    @media (min-width: 450px) {
         h1 {
             text-align: left;
+        }
+    }
+
+    @media (max-width: 900px) {
+        .matches-details {
+            display: none;
+        }
+    }
+
+    @media (min-width: 900px) {
+        .matchs-details {
+            font-size: 0.8em;
+        }
+
+        .timeline-wrapper {
+            flex-direction: row;
+            height: 18em;
+        }
+
+        .match-name {
+            position: absolute;
+        }
+
+        .timeline {
+            flex-direction: column;
+            margin-right: 6px;
+            font-size: 0.9em;
+        }
+
+        .dots {
+            padding: 0.5em 0;
+        }
+
+        .match-info {
+            text-align: left;
+
+            &:hover .match-name {
+                color: $off-white-font;
+            }
+        }
+
+        .selected-match {
+            display: none;
+        }
+
+        .line {
+            position: absolute;
+            bottom: auto;
+            width: 0;
+            height: 16em;
+            top: 0.9em;
+            left: 46px;
         }
     }
 }

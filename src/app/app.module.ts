@@ -12,6 +12,7 @@ import { PageHeaderComponent } from './page-header/page-header.component';
 import { HeadlineComponent } from './headline/headline.component';
 import { PageFooterComponent } from './page-footer/page-footer.component';
 import { FightCardComponent } from './fight-card/fight-card.component';
+import { SideNavComponent } from './side-nav/side-nav.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FightCardComponent } from './fight-card/fight-card.component';
     PageHeaderComponent,
     HeadlineComponent,
     PageFooterComponent,
-    FightCardComponent
+    FightCardComponent,
+    SideNavComponent
   ],
   imports: [
     HttpClientModule,

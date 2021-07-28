@@ -7,6 +7,11 @@
         margin-bottom: -6px;
     }
 
+    .purchase-button-wrapper {
+        display: inline-block;
+        width: 45%;
+    }
+
     .fighter-1 {
         position: relative;
         left: -50px;
@@ -115,45 +120,79 @@
         top: 75%;
         z-index: 4;
         width: 100%;
+        
+    }
 
-        button {
-            text-transform: uppercase;
-            background: $red;
-            border: none;
-            height: 48px;
-            width: 45%;
+    .purchase-button {
+        text-transform: uppercase;
+        background: $red;
+        border: none;
+        height: 48px;
+        width: 100%;
+        line-height: 48px;
+        font-family: "nimbus-sans-condensed";
+        font-weight: bold;
+        cursor: pointer;
+
+        mat-icon {
+            vertical-align: top;
+            font-size: 2em;
             line-height: 48px;
-            font-family: "nimbus-sans-condensed";
-            font-weight: bold;
-
-            mat-icon {
-                vertical-align: top;
-                font-size: 2em;
-                line-height: 48px;
-                margin-right: 3px;
-            }
+            margin-right: 3px;
         }
     }
 
-    @media (min-width: 1000px) {
+    @media (min-width: 900px) {
+        .fighter-1-bg {
+            left: 0px !important;
+        }
+
+        .fighter-2-bg {
+            right: 0px !important;
+        }
+
+        .fighter-background-image {
+            width: 50%;
+            z-index: 0;
+        }
+
         .fighter-image {
-            display: none;
+            position: absolute;
+            width: 50%;
+            bottom: 0;
         }
 
-        .fighter-1 {
-            left: 0px;
+        .purchase-buttons {
+            top: 55%;
         }
 
-        .fighter-2 {
-            right: 0px;
+        .buttons-wrapper {
+            width: 450px;
+            margin: 0 auto;
+        }
+
+        .purchase-button {
+            margin: 3px;
+            width: calc(100% - 6px);
+        }
+
+        .purchase-button-wrapper {
+            outline: 1px solid transparent;
+        }
+
+        .purchase-button-wrapper:hover {
+            outline: 1px solid $red;
         }
     }
 
-    @media (min-width: 400px) and (max-width: 1000px) {
+    @media (min-width: 450px) {
         .headline-info {
             width: 100%;
             position: absolute;
         }
+    }
+
+    @media (min-width: 450px) and (max-width: 900px) {
 
         .fighter-background-image {
             width: 55%;
@@ -164,7 +203,7 @@
         }
     }
 
-    @media (max-width: 1000px) {
+    @media (max-width: 900px) {
         .fighter-image {
             display: none;
         }

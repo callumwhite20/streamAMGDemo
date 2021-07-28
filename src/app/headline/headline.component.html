@@ -14,9 +14,17 @@
 </section>
 
 <div class="purchase-buttons">
-    <button><mat-icon aria-label="Menu">play_circle_outline</mat-icon>Watch Live Now</button>
-    <span class="or">Or</span>
-    <button>Purchase Your Pass</button>
+    <div class="buttons-wrapper">
+        <div class="purchase-button-wrapper">
+            <button class="purchase-button"><mat-icon aria-label="Menu">play_circle_outline</mat-icon>Watch Live Now</button>
+        </div>
+
+        <span class="or">Or</span>
+
+        <div class="purchase-button-wrapper">
+            <button class="purchase-button">Purchase Your Pass</button>
+        </div>
+    </div>
 </div>
 
 <img class="fighter-background-image fighter-1 fighter-1-bg" src="assets/{{headline.fighters[0].backgroundImageName}}">

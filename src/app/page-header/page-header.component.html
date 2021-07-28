@@ -1,9 +1,18 @@
 <header>
     <img class="logo left" src="assets/logo.svg">
 
-    <button class="icon-button right">
+    <button class="icon-button right" (click)="toggleSideNav()">
         <mat-icon aria-label="Menu">menu</mat-icon>
     </button>
 
+    <a href="#" class="nav-link right" [ngClass]="{'selected': selected === 'login'}">Login</a>
+    <a href="#" class="nav-link right" [ngClass]="{'selected': selected === 'faqs'}">FAQs</a>
+    <a href="#" class="nav-link right" [ngClass]="{'selected': selected === 'purchase'}">Purchase Pass</a>
+    <a href="#" class="nav-link right" [ngClass]="{'selected': selected === 'home'}">Home</a>
+
     <div class="clear-fix"></div>
 </header>
+
+<app-side-nav [(open)]="sideNavOpen" [selected]="selected"></app-side-nav>
+
+<div class="overlay" *ngIf="sideNavOpen"></div>

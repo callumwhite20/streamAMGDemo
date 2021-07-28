@@ -11,7 +11,6 @@
     box-sizing: border-box;
 
     > a {
-        text-decoration: none;
         font-weight: 300;
     }
 }
@@ -22,4 +21,20 @@
     margin: 0 auto;
     padding: 36px 0;
     font-weight: 300;
+}
+
+@media (min-width: 900px) {
+    .logo {
+        width: 20%;
+    }
+
+    .footer-link {
+        width: 20%;
+        padding: 0;
+    }
+
+    .links {
+        width: 75%;
+        margin: 0 auto;
+    }
 }

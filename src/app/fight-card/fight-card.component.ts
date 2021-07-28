@@ -9,6 +9,7 @@ import { DateService } from 'src/app/sevices/date/date.service';
 export class FightCardComponent implements OnInit {
   @Input() data:any;
   public selected = 0;
+  public hovered = -1;
 
   constructor(private dateService: DateService) { }
 
@@ -18,6 +19,14 @@ export class FightCardComponent implements OnInit {
 
   public select(index:number) {
     this.selected = index;
+  }
+
+  public hover(index:number) {
+    this.hovered = index;
+  }
+
+  public clearHover() {
+    this.hovered = -1;
   }
 
   ngOnInit(): void {

@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   private jsonURL = 'assets/data.json';
   public data:any;
   public moved:boolean = false;
+  public route:string = 'home';
 
   constructor(private http: HttpClient) {
     this.getJSON().subscribe(jsonData => {

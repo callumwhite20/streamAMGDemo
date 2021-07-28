@@ -7,27 +7,44 @@
 
     <p class="eta">(ETA)</p>
 
-    <div class="timeline">
-        <div class="match" *ngFor="let match of data.matches; let i = index">
-            <span class="time" (click)="select(i)">{{match.time}}</span>
+    <div class="matches-container relative">
+        <div class="timeline-wrapper">
+            <div class="timeline">
+                <div class="match" *ngFor="let match of data.matches; let i = index" (mouseenter)="hover(i) "  (mouseleave)="clearHover()" [ngClass]="{'not-selected': i !== selected && i !== hovered}">
+                    <span class="time" (click)="select(i)">{{match.time}}</span>
+                </div>
+            </div>
+
+            <div class="timeline dots">
+                <div class="match" *ngFor="let match of data.matches; let i = index" (mouseenter)="hover(i) "  (mouseleave)="clearHover()">
+                    <span class="marker" [ngClass]="{'selected': i === selected || i === hovered}"></span>
+                </div>
+            </div>
+
+            <div class="timeline matches-details">
+                <div class="match" *ngFor="let match of data.matches; let i = index" (mouseenter)="hover(i) "  (mouseleave)="clearHover()" [ngClass]="{'not-selected': i !== selected && i !== hovered}">
+                    <div class="match-info">
+                        <span class="combatant">{{data.matches[i].fighters[0].forename}} {{data.matches[i].fighters[0].surname}}</span>
+                        <span class="vs">Vs</span>
+                        <span class="combatant">{{data.matches[i].fighters[1].forename}} {{data.matches[i].fighters[1].surname}}</span>
+                        <span class="number" *ngIf="data.matches[i].matchNumber > 1">{{data.matches[i].matchNumber}}</span>
+            
+                        <div class="match-name" [ngClass]="{'hide-text': selected !== i}">{{data.matches[i].name}}</div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div class="line"></div>
+        <div class="line"></div>
 
-    <div class="timeline">
-        <div class="match" *ngFor="let match of data.matches; let i = index">
-            <span class="marker" [ngClass]="{'selected': i === selected}"></span>
+        <div class="match selected-match">
+            <span class="combatant">{{data.matches[selected].fighters[0].forename}} {{data.matches[selected].fighters[0].surname}}</span>
+            <span class="vs">Vs</span>
+            <br>
+            <span class="combatant">{{data.matches[selected].fighters[1].forename}} {{data.matches[selected].fighters[1].surname}}</span>
+            <span class="number" *ngIf="data.matches[selected].matchNumber > 1">{{data.matches[selected].matchNumber}}</span>
+
+            <div class="match-name">{{data.matches[selected].name}}</div>
         </div>
-    </div>
-
-    <div class="match">
-        <span class="combatant">{{data.matches[selected].fighters[0].forename}} {{data.matches[selected].fighters[0].surname}}</span>
-        <span class="vs">Vs</span>
-        <br>
-        <span class="combatant">{{data.matches[selected].fighters[1].forename}} {{data.matches[selected].fighters[1].surname}}</span>
-        <span class="number" *ngIf="data.matches[selected].matchNumber > 1">{{data.matches[selected].matchNumber}}</span>
-
-        <div class="match-name">{{data.matches[selected].name}}</div>
     </div>
 </div>

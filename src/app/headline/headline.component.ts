@@ -27,9 +27,9 @@ export class HeadlineComponent implements OnInit {
   }
 
   private moveFighters(position:number = 0) {
-    this.fighter1 ? this.fighter1.style.left = '-' + position/6 + 'px' : '';
+    this.fighter1 ? this.fighter1.style.left = '-' + (position/6 -20) + 'px' : '';
     this.fighter1bg ? this.fighter1bg.style.left = '-' + position/6 + 'px' : '';
-    this.fighter2 ? this.fighter2.style.right = '-' + position/6 + 'px' : '';
+    this.fighter2 ? this.fighter2.style.right = '-' + (position/6 -20) + 'px' : '';
     this.fighter2bg ? this.fighter2bg.style.right = '-' + position/6 + 'px' : '';
   }
 
@@ -56,19 +56,13 @@ export class HeadlineComponent implements OnInit {
     }, 1000);
 
     let lastKnownScrollPosition = 0;
-    let ticking = false;
 
     document.addEventListener('scroll', () => {
       lastKnownScrollPosition = window.scrollY;
     
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          this.moveFighters(lastKnownScrollPosition);
-          ticking = false;
-        });
-    
-        ticking = true;
-      }
+      window.requestAnimationFrame(() => {
+        this.moveFighters(lastKnownScrollPosition);
+      });
     });
   }
 

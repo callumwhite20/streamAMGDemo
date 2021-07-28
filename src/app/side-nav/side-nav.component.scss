@@ -1,0 +1,45 @@
+.side-nav {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -200px;
+    width: 200px;
+    background-image: url('./../../assets/hero-bg.jpg');
+    z-index: 200;
+    transition: right 0.2s ease-in-out;
+
+    &.open {
+        right: 0;
+    }
+
+    button, a {
+        display: block;
+    }
+
+    a {
+        text-align: center;
+        padding: 2em;
+        box-sizing: border-box;
+        font-size: 1.2em;
+        font-weight: 100;
+
+        &.selected {
+            font-weight: 400;
+        }
+    }
+
+    button {
+        width: 48px;
+        height: 48px;
+        padding: 0;
+        left: 128px;
+        position: relative;
+        text-align: center;
+        margin: 12px;
+
+        mat-icon {
+            width: 75%;
+            font-size: 3em;
+        }
+    }
+}
